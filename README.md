@@ -2,6 +2,12 @@
 
 A flexible, reusable Ansible role to install and configure Keepalived for high-availability IP failover on Ubuntu 24.04+ systems. Supports multiple VRRP instances, multiple VIPs per instance, and customizable network interfaces.
 
+## Install using ansible galaxy
+
+```bash
+ansible-galaxy role install fcastello.keepalived
+```
+
 ## Requirements
 - Ubuntu 24.04 or later
 - Static IP configuration on all participating servers
@@ -130,6 +136,3 @@ case $STATE in
     ;;
 esac
 ```
-
-## Galaxy Metadata
-See `meta/main.yml` for details. 
