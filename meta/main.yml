@@ -1,5 +1,6 @@
 galaxy_info:
-  author: Francisco
+  author: Francisco Castello
+  role_name: keepalived
   description: Flexible Keepalived role for Ubuntu 24.04+ with static IP and interface selection
   license: MIT
   min_ansible_version: '2.9'
