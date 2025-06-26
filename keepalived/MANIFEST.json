@@ -1,0 +1,12 @@
+{
+  "files": [
+    "README.md",
+    "defaults/main.yml",
+    "handlers/main.yml",
+    "meta/main.yml",
+    "tasks/main.yml",
+    "templates/keepalived.conf.j2",
+    "vars/main.yml",
+    ".galaxyignore"
+  ]
+} 

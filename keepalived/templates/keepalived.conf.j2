@@ -1,0 +1,29 @@
+{% for instance in keepalived_instances %}
+vrrp_instance VI_{{ loop.index }} {
+    state {{ instance.state | default('BACKUP') }}
+    interface {{ instance.interface }}
+    virtual_router_id {{ instance.router_id | default(51) }}
+    priority {{ instance.priority }}
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass {{ instance.auth_pass }}
+    }
+    unicast_src_ip {{ ansible_host }}
+    unicast_peer {
+{% for peer in instance.unicast_peers %}
+        {{ peer }}
+{% endfor %}
+    }
+    virtual_ipaddress {
+{% for vip in instance.vips %}
+        {{ vip }}
+{% endfor %}
+    }
+{% if instance.notify_script is defined and instance.notify_script %}
+    notify_master {{ instance.notify_script }}
+    notify_backup {{ instance.notify_script }}
+    notify_fault {{ instance.notify_script }}
+{% endif %}
+}
+{% endfor %} 
