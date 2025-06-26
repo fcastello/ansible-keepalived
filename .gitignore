@@ -1,0 +1,7 @@
+.DS_Store
+*.retry
+*.pyc
+*.pyo
+*.swp
+__pycache__/
+.git/
